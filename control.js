@@ -1,49 +1,52 @@
-class Controls {
-    constructor() {
-        this.forward = false;
-        this.left = false;
-        this.right = false;
-        this.reverse = false;
+class Controls{
+    constructor(type){
+        this.forward=false;
+        this.left=false;
+        this.right=false;
+        this.reverse=false;
 
-        this.#addkeyboardListeners();
+        switch(type){
+            case "KEYS":
+                this.#addKeyboardListeners();
+                break;
+            case "DUMMY":
+                this.forward=true;
+                break;
+        }
     }
 
-    #addkeyboardListeners() {
-        document.onkeydown = (event) => {
-            switch (event.key) {
-                case 'ArrowUp':
-                    this.forward = true;
+    #addKeyboardListeners(){
+        document.onkeydown=(event)=>{
+            switch(event.key){
+                case "ArrowLeft":
+                    this.left=true;
                     break;
-                case 'ArrowLeft':
-                    this.left = true;
+                case "ArrowRight":
+                    this.right=true;
                     break;
-                case 'ArrowRight':
-                    this.right = true;
+                case "ArrowUp":
+                    this.forward=true;
                     break;
-                case 'ArrowDown':
-                    this.reverse = true;
+                case "ArrowDown":
+                    this.reverse=true;
                     break;
             }
-            console.table(this);
         }
-
-
-        document.onkeyup = (event) => {
-            switch (event.key) {
-                case 'ArrowUp':
-                    this.forward = false;
+        document.onkeyup=(event)=>{
+            switch(event.key){
+                case "ArrowLeft":
+                    this.left=false;
                     break;
-                case 'ArrowLeft':
-                    this.left = false;
+                case "ArrowRight":
+                    this.right=false;
                     break;
-                case 'ArrowRight':
-                    this.right = false;
+                case "ArrowUp":
+                    this.forward=false;
                     break;
-                case 'ArrowDown':
-                    this.reverse = false;
+                case "ArrowDown":
+                    this.reverse=false;
                     break;
             }
-            console.table(this);
         }
     }
 }
