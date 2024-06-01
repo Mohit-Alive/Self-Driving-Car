@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Self Driving Car</title>
+    <title>Self-driving car - No libraries</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="myCanvas"></canvas>
-    
+    <canvas id="carCanvas"></canvas>
+    <div id="verticalButtons">
+        <button onclick="save()">💾</button>
+        <button onclick="discard()">🗑️</button>
+    </div>
+    <canvas id="networkCanvas"></canvas>
+    <script src="visualizer.js"></script>
+    <script src="network.js"></script>
     <script src="sensor.js"></script>
     <script src="utils.js"></script>
     <script src="road.js"></script>
-    <script src="control.js"></script>
+    <script src="controls.js"></script>
     <script src="car.js"></script>
     <script src="main.js"></script>
 </body>
